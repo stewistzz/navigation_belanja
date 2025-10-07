@@ -3,8 +3,9 @@ import 'package:belanja/models/item.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000),
+    // modifikasi untnuk menambahkan imageUrl dan rating
+    Item(name: 'Sugar', price: 5000, imageUrl: 'images/sugar.jpg', rating: 4.5),
+    Item(name: 'Salt', price: 2000, imageUrl: 'images/salt.jpeg', rating: 4.0),
   ];
 
   @override
@@ -18,10 +19,11 @@ class HomePage extends StatelessWidget {
           itemCount: items.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 2 / 1,
+            childAspectRatio: 3 / 4,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
           ),
+          // modifikasi untuk menampilkan item dalam grid dan menambahkan image dan rating
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
@@ -33,22 +35,57 @@ class HomePage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Container(
-                  margin: const EdgeInsets.all(8),
+                child: Padding(
+                  //hanya memberi jarak di dalam Card
                   padding: const EdgeInsets.all(8),
                   child: Column(
                     //ubah row menjadi column
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            items[index].imageUrl,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // Text untuk Nama Produk
                       Text(
                         items[index].name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
+                      const SizedBox(height: 6),
+
+                      // text untuk Harga Produk
                       Text(
-                        'Price: ${items[index].price}',
-                        style: TextStyle(fontSize: 14),
+                        'Rp ${items[index].price}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54,
+                        ),
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      // Row untuk menambahkan Rating
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.star, color: Colors.amber, size: 18),
+                          const SizedBox(width: 4),
+                          Text(
+                            items[index].rating.toString(),
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ],
                       ),
                     ],
                   ),
