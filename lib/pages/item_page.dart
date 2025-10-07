@@ -11,7 +11,6 @@ class ItemPage extends StatelessWidget {
         title: Text(item.name),
         backgroundColor: Colors.lightBlueAccent,
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
