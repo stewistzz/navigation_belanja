@@ -18,16 +18,21 @@ class ItemPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  item.imageUrl,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 250,
+              Hero(
+                tag: item.name, // sama dengan tag di HomePage
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    item.imageUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 250,
+                  ),
                 ),
               ),
+
               const SizedBox(height: 16),
+
               Text(
                 item.name,
                 style: const TextStyle(

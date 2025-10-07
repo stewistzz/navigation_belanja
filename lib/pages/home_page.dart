@@ -23,7 +23,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page')),
+      appBar: AppBar(
+        title: Text('Home Page'),
+        backgroundColor: Colors.lightBlueAccent,
+      ),
       body: Container(
         margin: EdgeInsets.all(8),
         padding: EdgeInsets.all(8),
@@ -55,12 +58,16 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            items[index].imageUrl,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                        child: Hero(
+                          tag: items[index]
+                              .name, // tag harus unik untuk tiap item
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              items[index].imageUrl,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
                           ),
                         ),
                       ),
