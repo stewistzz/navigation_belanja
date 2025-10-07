@@ -23,3 +23,5 @@ Hasil run pertama aplikasi setelah dibuat(Praktikum 5)
 3. ![Tampilan item - Salt](images/belanja03.png)
 
 Hasil run aplikasi setelah dibuat(Tugas Praktikum 2)
+1. ![Tampilan Homepage](images/belanja04.png)
+1. ![Tampilan items](images/belanja05.png)
