@@ -4,8 +4,20 @@ import 'package:belanja/models/item.dart';
 class HomePage extends StatelessWidget {
   final List<Item> items = [
     // modifikasi untnuk menambahkan imageUrl dan rating
-    Item(name: 'Sugar', price: 5000, imageUrl: 'images/sugar.jpg', rating: 4.5),
-    Item(name: 'Salt', price: 2000, imageUrl: 'images/salt.jpeg', rating: 4.0),
+    Item(
+      name: 'Sugar',
+      price: 5000,
+      imageUrl: 'images/sugar.jpg',
+      rating: 4.5,
+      stock: 20,
+    ),
+    Item(
+      name: 'Salt',
+      price: 2000,
+      imageUrl: 'images/salt.jpeg',
+      rating: 4.0,
+      stock: 20,
+    ),
   ];
 
   @override
